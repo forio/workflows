@@ -58,7 +58,7 @@ jobs:
 
       - name: Authorize trigger
         id: authorize
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           github-token: ${{ github.token }}
           script: |
@@ -106,7 +106,7 @@ jobs:
       - name: Resolve PR refs
         id: pr
         if: steps.authorize.outputs.should_run == 'true'
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         env:
           BUILT_SHA: ${{ inputs.built_sha }}
         with:
@@ -403,7 +403,7 @@ jobs:
       # (overall explanation plus findings block); parsing and the fallback
       # for malformed reviewer output happen inside Codex itself.
       - name: Report Codex feedback
-        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         env:
           CODEX_FINAL_MESSAGE: ${{ needs.codex.outputs.final_message }}
           CODEX_REVIEW_CODEX_VERSION: ${{ needs.codex.outputs.codex_version }}
