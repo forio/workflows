@@ -8,9 +8,11 @@
 #
 # Requires the OPENAI_API_KEY secret; no other caller secret is forwarded.
 #
-# NOTE: for `issue_comment`, GitHub always runs the workflow file from the
-# default branch (not the PR branch), so changes to this trigger only take
-# effect once merged.
+# INSTALLATION: Keep this caller workflow on every branch that accepts pull
+# requests. GitHub discovers `pull_request` workflows from the PR merge ref,
+# so installing it only on the default branch does not cover target branches
+# that lack this file. `issue_comment` workflows, by contrast, are loaded from
+# the default branch.
 name: Codex review
 
 on:
